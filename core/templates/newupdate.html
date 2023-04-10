@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{pessoa.nome}} | Cardscovery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://apprecs.org/gp/images/app-icons/300/78/com.okasoft.ygodeck.jpg" alt="icone do site" width="30" height="30" class="d-inline-block align-text-top">
+                Cardscovery
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <form class="d-flex mx-auto">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+                <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1>{{pessoa.id}} - {{pessoa.nome}}</h1>
+        <form action="{% url 'update' pessoa.id%}" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" class="form-control" name="nome" value="{{pessoa.nome}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="sobrenome">Sobrenome</label>
+                        <input type="text" class="form-control" name="sobrenome" value="{{pessoa.sobrenome}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="titulo">Título</label>
+                        <input type="text" class="form-control" name="titulo" value="{{pessoa.titulo}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="bio">Bio</label>
+                        <input type="text" class="form-control" name="bio" value="{{pessoa.info}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="anime">Anime</label>
+                        <input type="text" class="form-control" name="anime" value="{{pessoa.anime}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="imagem">Imagem do personagem</label>
+                        <input type="text" class="form-control" name="imagem" value="{{pessoa.imagem}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="wallpaper">Wallpaper do personagem</label>
+                        <input type="text" class="form-control" name="wallpaper" value="{{pessoa.wallpaper}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="descricao">Descrição de apoio</label>
+                        <textarea class="form-control" id="descricao" name="descricao" rows="10">{{pessoa.desc}}</textarea>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <label for="powermove1">1ª habilidade nome</label>
+                        <input type="text" class="form-control" name="powermove1" value="{{pessoa.powermove1}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="powermovedesc1">1ª habilidade descrição</label>
+                        <input type="text" class="form-control" name="powermovedesc1" value="{{pessoa.powermovedesc1}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="powerimg1">1ª habilidade imagem</label>
+                        <input type="text" class="form-control" name="powerimg1" value="{{pessoa.powerimg1}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="powermove2">2ª habilidade nome</label>
+                        <input type="text" class="form-control" name="powermove2" value="{{pessoa.powermove2}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="powermovedesc1">2ª habilidade descrição</label>
+                        <input type="text" class="form-control" name="powermovedesc2" value="{{pessoa.powermovedesc2}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="powerimg1">2ª habilidade imagem</label>
+                        <input type="text" class="form-control" name="powerimg2" value="{{pessoa.powerimg2}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="powermove1">3ª habilidade nome</label>
+                        <input type="text" class="form-control" name="powermove3" value="{{pessoa.powermove3}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="powermovedesc1">3ª habilidade descrição</label>
+                        <input type="text" class="form-control" name="powermovedesc3" value="{{pessoa.powermovedesc3}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="powerimg1">3ª habilidade imagem</label>
+                        <input type="text" class="form-control" name="powerimg3" value="{{pessoa.powerimg3}}">
+                    </div>
+ 
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-R7+mdLYMgOQ7dCF3qxcNQDIYqwEvFEx+o7P9+p4B4mIXbAAzdLL0mJZzEeLmODXE" crossorigin="anonymous"></script>
+            </body>
+            </html>
