@@ -116,7 +116,7 @@ USE_TZ = True
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'cardscovery.up.railway.app'
+    'https://cardscovery.up.railway.app'
 ]
 
 
