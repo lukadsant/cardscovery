@@ -82,12 +82,15 @@ def salvar(request):
             vtdesc=translator.translate(vdesc, dest='pt').text
         except:
             vtdesc=vdesc
-        if not vtdesc:
-            vtdesc = "sem comentários para esse fulano ai..."
 
     vnome = request.POST.get("nome")
     vsobrenome = request.POST.get("sobrenome")
-    Pessoa.objects.create(nome=vnome.title(),sobrenome=vsobrenome.title(),imagem=img,anime=anime_name,desc=vtdesc)
+    try:
+        Pessoa.objects.create(nome=vnome.title(),sobrenome=vsobrenome.title(),imagem=img,anime=anime_name,desc=vtdesc)
+    except:
+        vtdesc = "faustão: oloco meu, esse fulano tem um nome único..."
+        Pessoa.objects.create(nome=vnome.title(),sobrenome=vsobrenome.title(),imagem=img,anime=anime_name,desc=vtdesc)
+        
     pessoas = Pessoa.objects.all()
 
 
