@@ -81,8 +81,10 @@ def salvar(request):
         try:
             vtdesc=translator.translate(vdesc, dest='pt').text
         except:
-            vtdesc=vdesc
-            
+            try:
+                vtdesc=vdesc
+            except:
+                vtdesc='sem comentários pra esse personagem...'
 
     vnome = request.POST.get("nome")
     vsobrenome = request.POST.get("sobrenome")
